@@ -1,0 +1,6 @@
+Why use React and not just JS?
+
+Repeating Code in just JS 
+React- Splitting application into smaller and smaller bits to make the code manageable. React does the job of combining them all 
+
+Single page app - Server only sends one HTML page. Thereafter react takes over and controls UI
