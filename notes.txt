@@ -8,3 +8,7 @@ Single page app - Server only sends one HTML page. Thereafter react takes over a
 Why components in React?
 a) Reusability - Dont repeat yourself
 b) Separation of Concerns - Dont do too many things in pne and the same place
+
+React File structure
+
+index.js - important file. first file to be executed. 
