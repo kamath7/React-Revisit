@@ -6,7 +6,7 @@ const Card = (props) => {
         <div className={classes}>
             {props.children}
         </div>
-    )
+    )//Alternate return when babel translates would be React.createElement('')
 }
 
 export default Card
