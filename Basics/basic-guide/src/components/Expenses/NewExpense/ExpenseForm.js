@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   //   const [title, setTitle] = useState("");
   //   const [amount, setAmount] = useState("0");
   //   const [date,setDate] = useState('2020-02-02');
@@ -10,27 +10,31 @@ const ExpenseForm = () => {
     date: "",
   });
   const titleChangeHandler = (e) => {
-    setUserInput((prevState)=>({...prevState, title:e.target.value}))
-    console.log(userInput)
+    setUserInput((prevState) => ({ ...prevState, title: e.target.value }));
+    console.log(userInput);
   };
   const amountChangeHandler = (e) => {
-    setUserInput((prevState)=>({...prevState, amount:e.target.value}))
-    console.log(userInput)
+    setUserInput((prevState) => ({ ...prevState, amount: e.target.value }));
+    console.log(userInput);
   };
   const dateChangeHandler = (e) => {
-    setUserInput((prevState)=>({...prevState, date:e.target.value}))
-    console.log(userInput)
+    setUserInput((prevState) => ({ ...prevState, date: e.target.value }));
+    console.log(userInput);
   };
-  const submitHandler = (e)=>{
-    e.preventDefault()
+  const submitHandler = (e) => {
+    e.preventDefault();
     const expenseData = {
-        title: userInput.title,
-        amount: userInput.amount,
-        date: new Date(userInput.date)
-    }
-    console.log(`You entered ${expenseData}`)
-
-  }
+      title: userInput.title,
+      amount: userInput.amount,
+      date: new Date(userInput.date),
+    };
+    props.onSaveExpenseData(expenseData);
+    setUserInput((prevState) => ({
+      title: "",
+      amount: "0",
+      date: "29, January 2021",
+    }));
+  };
   return (
     <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
