@@ -11,15 +11,12 @@ const ExpenseForm = (props) => {
   });
   const titleChangeHandler = (e) => {
     setUserInput((prevState) => ({ ...prevState, title: e.target.value }));
-    console.log(userInput);
   };
   const amountChangeHandler = (e) => {
     setUserInput((prevState) => ({ ...prevState, amount: e.target.value }));
-    console.log(userInput);
   };
   const dateChangeHandler = (e) => {
     setUserInput((prevState) => ({ ...prevState, date: e.target.value }));
-    console.log(userInput);
   };
   const submitHandler = (e) => {
     e.preventDefault();
