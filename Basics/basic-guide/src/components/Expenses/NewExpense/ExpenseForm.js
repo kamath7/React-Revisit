@@ -4,7 +4,7 @@ const ExpenseForm = (props) => {
   //   const [title, setTitle] = useState("");
   //   const [amount, setAmount] = useState("0");
   //   const [date,setDate] = useState('2020-02-02');
-  const [visible, setVisible] = useState(true)
+  const [visible, setVisible] = useState(false)
   const [userInput, setUserInput] = useState({
     title: "",
     amount: "",

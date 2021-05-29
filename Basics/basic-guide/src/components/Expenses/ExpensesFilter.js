@@ -7,15 +7,16 @@ const ExpensesFilter = (props) => {
         props.onChangeFilter(e.target.value);
         console.log(e.target.value)
     }
+    const years = []
+    for (let i = new Date().getFullYear() - 3 ; i <= new Date().getFullYear() + 1 ; i++){
+      years.push(i)
+    }
   return (
     <div className="expenses-filter">
       <div className="expenses-filter__control">
         <label>Filter by year</label>
         <select onChange={yearChangedHandler}>
-          <option value="2022">2022</option>
-          <option value="2021">2021</option>
-          <option value="2020">2020</option>
-          <option value="2019">2019</option>
+          {years.map((year,i)=> <option key={i} value={year}>{year}</option>)}       
         </select>
       </div>
     </div>
