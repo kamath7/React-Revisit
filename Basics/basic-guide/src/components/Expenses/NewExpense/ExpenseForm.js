@@ -4,6 +4,7 @@ const ExpenseForm = (props) => {
   //   const [title, setTitle] = useState("");
   //   const [amount, setAmount] = useState("0");
   //   const [date,setDate] = useState('2020-02-02');
+  const [visible, setVisible] = useState(true)
   const [userInput, setUserInput] = useState({
     title: "",
     amount: "",
@@ -18,6 +19,9 @@ const ExpenseForm = (props) => {
   const dateChangeHandler = (e) => {
     setUserInput((prevState) => ({ ...prevState, date: e.target.value }));
   };
+  const visibleHandler = ()=>{
+    setVisible(!visible);
+  }
   const submitHandler = (e) => {
     e.preventDefault();
     const expenseData = {
@@ -33,7 +37,8 @@ const ExpenseForm = (props) => {
     }));
   };
   return (
-    <form onSubmit={submitHandler}>
+    <div>
+    {visible ? (   <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
@@ -66,7 +71,11 @@ const ExpenseForm = (props) => {
       <div className="new-expense__actions">
         <button type="submit">Add Expense</button>
       </div>
-    </form>
+      
+    </form>): <p>{""}</p>}
+    <button onClick={visibleHandler}>{visible? 'Close Form':'Add Expense Form'}</button>
+    </div>
+ 
   );
 };
 

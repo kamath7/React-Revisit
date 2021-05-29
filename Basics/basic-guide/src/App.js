@@ -1,9 +1,9 @@
-import React , {useState} from 'react';
+import React, { useState } from "react";
 import ExpenseItemList from "./components/Expenses/ExpenseItemList";
 import NewExpense from "./components/Expenses/NewExpense/NewExpense";
 
 import "./App.css";
-  
+
 const dummyExpenses = [
   {
     id: "e1",
@@ -26,23 +26,15 @@ const dummyExpenses = [
   },
 ];
 function App() {
+  const [expenses, setExpenses] = useState(dummyExpenses);
+  const addExpenseHandler = (expense) => {
+    setExpenses((prevExpenses) => [expense, ...prevExpenses]);
+  };
 
-  const [expenses,setExpenses] = useState(dummyExpenses);
-  const addExpenseHandler = expense =>{
-    setExpenses((prevExpenses)=> ([expense,...prevExpenses]))
-  }
-  console.log(expenses)
   return (
     <div className="App">
-      {/* {expenses.map((expense)=><li>{JSON.stringify(expense)}</li>)} */}
-      {expenses.map((expense)=>{
-        if (expense.date.getFullYear().toString() === '2020'){
-          console.log(expense)
-        }
-        return -1 
-      })}
-      <NewExpense onAddExpense={addExpenseHandler}/>
-      <ExpenseItemList expenses={expenses}/>
+      <NewExpense onAddExpense={addExpenseHandler} />
+      <ExpenseItemList expenses={expenses} />
     </div>
   );
 }
