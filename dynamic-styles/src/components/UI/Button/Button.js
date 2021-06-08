@@ -27,7 +27,7 @@ import styles from './Button.module.css'
 // }
 
 // `;
-
+//debugging not much here
 const Button = props => {
   return (
     <button type={props.type} className={styles.button} onClick={props.onClick}>
