@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
 import classes from "./AddUser.module.css";
-const AddUser = () => {
+const AddUser = (props) => {
   const [enteredUsername, setUsername] = useState("");
   const [age, setAge] = useState("");
 
@@ -10,6 +10,7 @@ const AddUser = () => {
     e.preventDefault();
     if (enteredUsername.trim().length === 0 || age.trim().length === 0) return;
     if (+age < 1) return;
+    props.giveMeUsers({name: enteredUsername, age})
     alert(`Entered value is ${enteredUsername} ${age}`);
   };
   const userNameChangeHandler = (e) => {

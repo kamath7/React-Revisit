@@ -1,13 +1,17 @@
 import './App.css';
+import React, {useState} from 'react';
 import AddUser from './components/Users/AddUser';
 import UsersList from './components/Users/UsersList';
 
 function App() {
-  const users = [{name:'Ronaldo',age:35}, {name:'Rooney', age:34},{name:'',age:''}]
+  const [usersList, setUsersList] = useState([])
+  const giveMeUsers = (users)=>{
+    setUsersList(prevState=> [...prevState, users])
+  }
   return (
     <div className="App">
-        <AddUser/>
-        <UsersList users={users}/>
+        <AddUser giveMeUsers={giveMeUsers}/>
+        <UsersList users={usersList}/>
     </div>
   );
 }
