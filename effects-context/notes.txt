@@ -1,0 +1,7 @@
+React Hookcs - Call them only in React Functions
+- React Component Functions
+- Custom Hooks 
+
+Call Hooks at top level 
+- Don't call them in nested Functions 
+- Block statement calling avoided
