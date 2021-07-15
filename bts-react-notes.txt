@@ -1,0 +1,9 @@
+ReactDOM - Interface to the WEB
+
+VirtualDOM - Determines how component tree and sub tree difference is after a state update. 
+React determines how component tree currently looks like and what it should look like.
+REACTDOM 
+
+Revaluating component is not re-rendering the dom. 
+Components - reevaluated whenver props state or context changes. React exectutes component functions
+React DOM - Change to real dom are only made for differences between evaluations
