@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-
+import DemoOutput from './components/Demo/DemoOutput'
 function App() {
   const [showP, setShowP] = useState(false);
   const toggleP = () => {
@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <h1>Hi Kams!</h1>
       <button onClick={toggleP}>Toggle  p</button>
-      {showP && <p>Some lalle text</p>}
+       <DemoOutput show={showP}/>
       {showP && <p> United title winners 2021-22 </p>}
     </div>
   );
