@@ -7,3 +7,5 @@ REACTDOM
 Revaluating component is not re-rendering the dom. 
 Components - reevaluated whenver props state or context changes. React exectutes component functions
 React DOM - Change to real dom are only made for differences between evaluations
+
+REACT MEMO stores previous props value and compare with current props value which is why don't use React.Memo everywhere

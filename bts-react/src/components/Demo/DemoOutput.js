@@ -1,13 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const DemoOutput = (props) => {
-    return (
-        <div>
-            <p>{props.show ? 'Kams is lord': 'Nothing much'}</p>
+  return (
+    <div>
+      <p>{props.show ? "Kams is lord" : "Nothing much"}</p>
+    </div>
+  );
+};
 
-        </div>
-    )
-}
-
-export default DemoOutput
-
+export default React.memo(DemoOutput);
