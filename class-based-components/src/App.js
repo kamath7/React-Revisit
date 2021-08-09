@@ -1,10 +1,11 @@
-import ClassUsers from './components/ClassUsers';
-import Users from './components/Users';
+import ClassUsers from "./components/ClassUsers";
+import UserFinder from "./components/UserFinder";
+import Users from "./components/Users";
 
 function App() {
   return (
     <div>
-      <ClassUsers />
+      <UserFinder />
     </div>
   );
 }
