@@ -5,3 +5,8 @@ three methods
 componentDidMount() -> Called once, component mounted (was evaluated and rendered) - Similar to useEffect
 componentDidUpdate() -> Called once component updated - Similar to useEffect with dependency
 componentWillUnmount() -> called before component removed from DOM -> useEffect's cleanup function
+
+
+CBC vs FB 
+
+use CBC - using legacy code , if building error boundary
