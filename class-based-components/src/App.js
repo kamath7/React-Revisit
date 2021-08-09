@@ -1,3 +1,4 @@
+import ClassUserFinder from "./components/ClassUserFinder";
 import ClassUsers from "./components/ClassUsers";
 import UserFinder from "./components/UserFinder";
 import Users from "./components/Users";
@@ -5,7 +6,7 @@ import Users from "./components/Users";
 function App() {
   return (
     <div>
-      <UserFinder />
+      <ClassUserFinder />
     </div>
   );
 }
