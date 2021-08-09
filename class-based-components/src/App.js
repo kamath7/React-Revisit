@@ -1,9 +1,10 @@
+import ClassUsers from './components/ClassUsers';
 import Users from './components/Users';
 
 function App() {
   return (
     <div>
-      <Users />
+      <ClassUsers />
     </div>
   );
 }
