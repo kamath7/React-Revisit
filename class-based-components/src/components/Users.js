@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ClassUser from './ClassUser';
 import User from './User';
 
 import classes from './Users.module.css';
@@ -19,7 +20,7 @@ const Users = () => {
   const usersList = (
     <ul>
       {DUMMY_USERS.map((user) => (
-        <User key={user.id} name={user.name} />
+        <ClassUser key={user.id} name={user.name} />
       ))}
     </ul>
   );
