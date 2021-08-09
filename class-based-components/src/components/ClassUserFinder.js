@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import UsersContext from "../users-context";
 import classes from "./UserFinder.module.css";
 import Users from "./Users";
 
@@ -9,17 +10,24 @@ const DUMMY_USERS = [
 ];
 
 export default class ClassUserFinder extends Component {
+  static contextType = UsersContext;
   constructor() {
     super();
     this.state = {
-      filteredUsers: DUMMY_USERS,
+      filteredUsers: this.context.users,
       searchTerm: "",
     };
+  }
+  componentWillUnmount() {
+    console.log("Ciao Amigo!");
+  }
+  componentDidMount() {
+    this.setState({ filteredUsers: this.context.users });
   }
   componentDidUpdate(prevProps, prevState) {
     if (prevState.searchTerm !== this.state.searchTerm) {
       this.setState({
-        filteredUsers: DUMMY_USERS.filter((user) =>
+        filteredUsers: this.context.users.filter((user) =>
           user.name.includes(this.state.searchTerm)
         ),
       });
@@ -31,11 +39,13 @@ export default class ClassUserFinder extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className={classes.finder}>
-          <input type="search" onChange={this.searchHandler.bind(this)} />
-        </div>
+        <UsersContext.Consumer>
+          <div className={classes.finder}>
+            <input type="search" onChange={this.searchHandler.bind(this)} />
+          </div>
 
-        <Users users={this.state.filteredUsers} />
+          <Users users={this.state.filteredUsers} />
+        </UsersContext.Consumer>
       </React.Fragment>
     );
   }
