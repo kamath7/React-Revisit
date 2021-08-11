@@ -12,20 +12,11 @@ function App() {
       loadedTasks.push({ id: tasksKey, text: tasksObj[tasksKey].text });
     }
     setTasks(loadedTasks);
-  },[]) ;
-  const {
-    isLoading,
-    error,
-    sendReq: fetchTasks,
-  } = useHttp(
-    {
-      url: "https://lalle-react-app-default-rtdb.firebaseio.com//tasks.json",
-    },
-    transformer
-  );
+  }, []);
+  const { isLoading, error, sendReq: fetchTasks } = useHttp(transformer);
 
   useEffect(() => {
-    fetchTasks();
+    fetchTasks({url: 'https://lalle-react-app-default-rtdb.firebaseio.com/tasks.json'});
   }, [fetchTasks]);
 
   const taskAddHandler = (task) => {
