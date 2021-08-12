@@ -2,12 +2,16 @@ import { useRef, useState } from "react";
 
 const SimpleInput = (props) => {
   const [name, setName] = useState("");
+  
   const nameInputRef = useRef(); //alternate approach
   const nameInputChangeHandler = (event) => {
     setName(event.target.value);
   };
   const formSubmit = (event) => {
     event.preventDefault();
+    if(name.trim() == ''){
+      return;
+    }
     console.log(name);
     const enteredVal = nameInputRef.current.value;
     console.log(`From ref ${enteredVal}`);
