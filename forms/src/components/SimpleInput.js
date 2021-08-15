@@ -1,20 +1,25 @@
-import {  useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import useInput from "../hooks/use-input";
 
 const SimpleInput = (props) => {
+  const {
+    value: name,
+    hasError: nameInputisInvalid,
+    valueChangeHandler: nameInputChangeHandler,
+    blurHandler: nameInputBlurHandler,
+    isValid: enteredNameisValid,
+    reset: resetNameInput,
+  } = useInput((value) => value.trim() !== "");
   function validateEmail(email) {
     const re =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
   }
-  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   // const [nameValid, setNameValid] = useState(false);
   const [formIsValid, setFormisValid] = useState(false);
-  const [enteredNameTouch, setEnterdNameTocuh] = useState(false);
   const [enteredEmailTouch, setEnterdEmailTocuh] = useState(false);
-  const enteredNameisValid = name.trim() !== "";
   const enteredEmailisValid = validateEmail(email);
-  const nameInputisInvalid = !enteredNameisValid && enteredNameTouch;
   const emailInputIsInvalid = !enteredEmailisValid && enteredEmailTouch;
   useEffect(() => {
     if (enteredNameisValid && enteredEmailisValid) {
@@ -24,32 +29,25 @@ const SimpleInput = (props) => {
     }
   }, [enteredNameisValid, enteredEmailisValid]);
 
-  const nameInputChangeHandler = (event) => {
-    setName(event.target.value);
-  };
   const emailInputChangeHandler = (event) => {
     setEmail(event.target.value);
   };
-  const nameInputBlurHandler = (event) => {
-    setEnterdNameTocuh(true);
-  };
+
   const emailInputBlurHandler = (event) => {
     setEnterdEmailTocuh(true);
   };
   const formSubmit = (event) => {
     event.preventDefault();
-    setEnterdNameTocuh(true);
     setEnterdEmailTocuh(true);
 
     if (!enteredNameisValid || !enteredNameisValid) {
       return;
     }
-    console.log(`Name: ${name} \n Email: ${email}`)
+    console.log(`Name: ${name} \n Email: ${email}`);
     // const enteredVal = nameInputRef.current.value;
     // console.log(`From ref ${enteredVal}`);
-    setName("");
+    resetNameInput();
     setEmail("");
-    setEnterdNameTocuh(false);
     setEnterdEmailTocuh(false);
   };
 

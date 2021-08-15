@@ -13,11 +13,17 @@ const useInput = (validateValue)=>{
       const blurHandler = (event) => {
         setIsTouched(true);
       };
+      const reset  = ()=>{
+          setEnteredValue('')
+          setIsTouched(false)
+      }
     return {
         value: enteredValue,
         hasError,
+        reset,
         valueChangeHandler,
-        blurHandler
+        blurHandler,
+        isValid: valueIsValid
     }
 }
 export default useInput;
