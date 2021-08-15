@@ -3,15 +3,19 @@ import { useRef, useState } from "react";
 const SimpleInput = (props) => {
   const [name, setName] = useState("");
   // const [nameValid, setNameValid] = useState(false);
+  const [ formIsValid, setFormisValid] = useState(false)
   const [enteredNameTouch, setEnterdNameTocuh] = useState(false);
   const enteredNameisValid = name.trim() !== "";
   const nameInputisInvalid = !enteredNameisValid && enteredNameTouch;
 
-  // useEffect(() => {
-  //   if (nameValid) {
-  //     console.log("name input is valid");
-  //   }
-  // }, [nameValid]);
+  useEffect(() => {
+
+    if(enteredNameisValid){
+      setFormisValid(true)
+    }else{
+      setFormisValid(false)
+    }
+  }, [ente]);
 
   const nameInputRef = useRef(); //alternate approach
   const nameInputChangeHandler = (event) => {
@@ -52,7 +56,7 @@ const SimpleInput = (props) => {
         )}
       </div>
       <div className="form-actions">
-        <button>Submit</button>
+        <button disabled={!formIsValid}>Submit</button>
       </div>
     </form>
   );
