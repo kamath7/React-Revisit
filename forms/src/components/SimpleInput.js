@@ -10,17 +10,22 @@ const SimpleInput = (props) => {
     isValid: enteredNameisValid,
     reset: resetNameInput,
   } = useInput((value) => value.trim() !== "");
+
+  const {
+    value: email,
+    hasError: emailInputIsInvalid,
+    valueChangeHandler: emailInputChangeHandler,
+    blurHandler: emailInputBlurHandler,
+    isValid: enteredEmailisValid,
+    reset: resetEmailInput
+  } = useInput(validateEmail);
   function validateEmail(email) {
     const re =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
   }
-  const [email, setEmail] = useState("");
   // const [nameValid, setNameValid] = useState(false);
   const [formIsValid, setFormisValid] = useState(false);
-  const [enteredEmailTouch, setEnterdEmailTocuh] = useState(false);
-  const enteredEmailisValid = validateEmail(email);
-  const emailInputIsInvalid = !enteredEmailisValid && enteredEmailTouch;
   useEffect(() => {
     if (enteredNameisValid && enteredEmailisValid) {
       setFormisValid(true);
@@ -29,16 +34,9 @@ const SimpleInput = (props) => {
     }
   }, [enteredNameisValid, enteredEmailisValid]);
 
-  const emailInputChangeHandler = (event) => {
-    setEmail(event.target.value);
-  };
 
-  const emailInputBlurHandler = (event) => {
-    setEnterdEmailTocuh(true);
-  };
   const formSubmit = (event) => {
     event.preventDefault();
-    setEnterdEmailTocuh(true);
 
     if (!enteredNameisValid || !enteredNameisValid) {
       return;
@@ -47,8 +45,7 @@ const SimpleInput = (props) => {
     // const enteredVal = nameInputRef.current.value;
     // console.log(`From ref ${enteredVal}`);
     resetNameInput();
-    setEmail("");
-    setEnterdEmailTocuh(false);
+    resetEmailInput()
   };
 
   const nameInputClasses = nameInputisInvalid
