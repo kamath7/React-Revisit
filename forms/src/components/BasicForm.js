@@ -39,8 +39,24 @@ const BasicForm = (props) => {
     ? "form-control invalid"
     : "form-control";
   const emailClasses = emailHasError ? "form-control invalid" : "form-control";
+
+  let isFormValid = false;
+
+  if (firstNameIsValid && lastNameIsValid && emailIsValid) {
+    isFormValid = true;
+  }
+  const onSubmitHandler = (event) => {
+    event.preventDefault();
+
+    if (!isFormValid) {
+      return;
+    }
+    alert(
+      `Succesfully submitted. \n First Name -> ${firstNameValue} \n Last Name -> ${lastNameValue} \n Email -> ${emailValue}`
+    );
+  };
   return (
-    <form>
+    <form onSubmit={onSubmitHandler}>
       <div className="control-group">
         <div className={firstNameClasses}>
           <label htmlFor="name">First Name</label>
@@ -51,7 +67,9 @@ const BasicForm = (props) => {
             onChange={firstNameChangeHandler}
             onBlur={firstNameBlurHandler}
           />
-          {firstNameHasError && <p>Enter a first name!</p>}
+          {firstNameHasError && (
+            <p className="error-text">Enter a first name!</p>
+          )}
         </div>
         <div className={lastNameClasses}>
           <label htmlFor="name">Last Name</label>
@@ -62,7 +80,7 @@ const BasicForm = (props) => {
             onChange={lastNameChangeHandler}
             onBlur={lastNameBlurHandler}
           />
-          {lastNameHasError && <p>Enter a last name!</p>}
+          {lastNameHasError && <p className="error-text">Enter a last name!</p>}
         </div>
       </div>
       <div className={emailClasses}>
@@ -74,10 +92,12 @@ const BasicForm = (props) => {
           onChange={emailChangeHandler}
           onBlur={emailBlurHandler}
         />
-        {emailHasError && <p>Enter an appropriate email!</p>}
+        {emailHasError && (
+          <p className="error-text">Enter an appropriate email!</p>
+        )}
       </div>
       <div className="form-actions">
-        <button>Submit</button>
+        <button disabled={!isFormValid}>Submit</button>
       </div>
     </form>
   );
