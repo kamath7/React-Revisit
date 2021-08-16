@@ -54,6 +54,9 @@ const BasicForm = (props) => {
     alert(
       `Succesfully submitted. \n First Name -> ${firstNameValue} \n Last Name -> ${lastNameValue} \n Email -> ${emailValue}`
     );
+    resetFirstName()
+    resetLastName()
+    resetEmail()
   };
   return (
     <form onSubmit={onSubmitHandler}>
