@@ -42,7 +42,7 @@ const useInput = (validateValue) => {
   const valueChangeHandler = (event) => {
     dispatch({ type: "INPUT_CHANGE", payload: event.target.value });
   };
-  const blurHandler = (event) => {
+  const blurHandler = () => {
     dispatch({ type: "INPUT_BLUR" });
   };
   const reset = () => {
