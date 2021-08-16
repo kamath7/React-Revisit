@@ -10,6 +10,7 @@ const BasicForm = (props) => {
   const {
     value: firstNameValue,
     isValid: firstNameIsValid,
+    hasError: firstNameHasError,
     valueChangeHandler: firstNameChangeHandler,
     inputBlurHanlder: firstNameBlurHandler,
     reset: resetFirstName,
@@ -17,6 +18,7 @@ const BasicForm = (props) => {
   const {
     value: lastNameValue,
     isValid: lastNameIsValid,
+    hasError: lastNameHasError,
     valueChangeHandler: lastNameChangeHandler,
     inputBlurHanlder: lastNameBlurHandler,
     reset: resetLastName,
@@ -24,14 +26,23 @@ const BasicForm = (props) => {
   const {
     value: emailValue,
     isValid: emailIsValid,
+    hasError: emailHasError,
     valueChangeHandler: emailChangeHandler,
     inputBlurHanlder: emailBlurHandler,
     reset: resetEmail,
   } = useInput(validateEmail);
+
+  const firstNameClasses = firstNameHasError
+    ? "form-control invalid"
+    : "form-control";
+  const lastNameClasses = lastNameHasError
+    ? "form-control invalid"
+    : "form-control";
+  const emailClasses = emailHasError ? "form-control invalid" : "form-control";
   return (
     <form>
       <div className="control-group">
-        <div className="form-control">
+        <div className={firstNameClasses}>
           <label htmlFor="name">First Name</label>
           <input
             type="text"
@@ -40,8 +51,9 @@ const BasicForm = (props) => {
             onChange={firstNameChangeHandler}
             onBlur={firstNameBlurHandler}
           />
+          {firstNameHasError && <p>Enter a first name!</p>}
         </div>
-        <div className="form-control">
+        <div className={lastNameClasses}>
           <label htmlFor="name">Last Name</label>
           <input
             type="text"
@@ -50,9 +62,10 @@ const BasicForm = (props) => {
             onChange={lastNameChangeHandler}
             onBlur={lastNameBlurHandler}
           />
+          {lastNameHasError && <p>Enter a last name!</p>}
         </div>
       </div>
-      <div className="form-control">
+      <div className={emailClasses}>
         <label htmlFor="name">E-Mail Address</label>
         <input
           type="text"
@@ -61,6 +74,7 @@ const BasicForm = (props) => {
           onChange={emailChangeHandler}
           onBlur={emailBlurHandler}
         />
+        {emailHasError && <p>Enter an appropriate email!</p>}
       </div>
       <div className="form-actions">
         <button>Submit</button>
