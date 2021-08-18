@@ -11,3 +11,13 @@ Redux - Cross component or App-Wide state
 
 React Context - Complex Setup/Management
 Performance can be bad
+
+
+Redux 
+
+Store - Central data (state)
+Components setup subscription to the store and are notified
+Reducer Function - Mutates store data. Reducer functions are generic and not related to useReducer() hook
+Action - Components dispatch actions. 
+Redux forwards actions to the reducer. 
+Reducer performs actions and state is changed
