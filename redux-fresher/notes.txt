@@ -1,0 +1,13 @@
+Redux
+
+State mgmt system for cross-component or app-wide state
+
+Three types of state
+Local State - State that belongs to a single component. listening to user input (useState)
+Cross-Component State - State that affects multiple components. open/closed state of a modal. Props-chain or prop-drilling (passing props)
+App-Wide State - App wide such as authentication
+
+Redux - Cross component or App-Wide state
+
+React Context - Complex Setup/Management
+Performance can be bad
