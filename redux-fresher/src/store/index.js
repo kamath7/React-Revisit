@@ -35,10 +35,17 @@ const authSlice = createSlice({
   },
 });
 
+// const store = configureStore({
+//   reducer: counterSlice.reducer, //global reducer here would counterSlice.reducer. alternatively use {} and setup reducers with keys and reducers
+// });
 const store = configureStore({
-  reducer: counterSlice.reducer, //global reducer here would counterSlice.reducer. alternatively use {} and setup reducers with keys and reducers
+  reducer: {
+    counter: counterSlice.reducer,
+    auth: authSlice.reducer,
+  },
 });
 export const counterAction = counterSlice.actions;
+export const authAction = authSlice.actions;
 export default store;
 //Counter reducer before (redundant)
 /* 
