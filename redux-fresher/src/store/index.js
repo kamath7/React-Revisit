@@ -9,13 +9,13 @@ const counterSlice = createSlice({
       // can mutate state here. internally transferred to be immutable
       state.counter++;
     },
-    decrement() {
+    decrement(state) {
       state.counter--;
     },
     increase(state, action) {
       state.counter = state.counter + action.payload;
     },
-    toggleCounter() {
+    toggleCounter(state) {
       state.showCounter = !state.showCounter;
     },
   },
@@ -24,6 +24,7 @@ const counterSlice = createSlice({
 const store = configureStore({
   reducer: counterSlice.reducer, //global reducer here would counterSlice.reducer. alternatively use {} and setup reducers with keys and reducers
 });
+export const counterAction = counterSlice.actions
 export default store;
 //Counter reducer before (redundant)
 /* 
