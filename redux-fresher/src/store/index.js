@@ -1,7 +1,7 @@
-import { createStore, combineReducers } from "redux";
-import { createSlice } from "@reduxjs/toolkit";
+import { createStore } from "redux";
+import { createSlice, configureStore } from "@reduxjs/toolkit";
 const initialState = { counter: 0, showCounter: true };
-createSlice({
+const counterSlice = createSlice({
   name: "counter",
   initialState,
   reducers: {
@@ -20,6 +20,13 @@ createSlice({
     },
   },
 });
+
+const store = configureStore({
+  reducer: counterSlice.reducer, //global reducer here would counterSlice.reducer. alternatively use {} and setup reducers with keys and reducers
+});
+export default store;
+//Counter reducer before (redundant)
+/* 
 const counterReducer = (state = initialState, action) => {
   switch (action.type) {
     case "increment":
@@ -47,5 +54,5 @@ const counterReducer = (state = initialState, action) => {
   }
 };
 
-const store = createStore(counterReducer);
-export default store;
+
+*/
