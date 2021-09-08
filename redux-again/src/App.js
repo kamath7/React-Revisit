@@ -43,7 +43,7 @@ function App() {
         })
       );
     });
-  }, [cart]);
+  }, [cart, dispatch]);
   return (
     <Layout>
       {showCart && <Cart />}
