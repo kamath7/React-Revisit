@@ -12,7 +12,10 @@ export const sendCartData = (cart) => {
     const sendReq = async () => {
       const response = await fetch(`${process.env.REACT_APP_FIREBASE_URL}`, {
         method: "PUT",
-        body: JSON.stringify(cart),
+        body: JSON.stringify({
+          items: cart.items,
+          totalQuantity: cart.totalQuantity,
+        }),
       });
 
       if (!response.ok) {
