@@ -5,7 +5,7 @@ import Layout from "./components/Layout/Layout";
 import Products from "./components/Shop/Products";
 // import { uiActions } from "./store/cart-slice";
 import Notification from "./components/UI/Notification";
-import {sendCartData} from './store/ui-slice'
+import {sendCartData} from './store/cart-actions'
 let isInit = true;
 function App() {
   const dispatch = useDispatch();
