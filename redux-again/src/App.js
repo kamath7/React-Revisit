@@ -1,14 +1,15 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import Cart from "./components/Cart/Cart";
 import Layout from "./components/Layout/Layout";
 import Products from "./components/Shop/Products";
 import { uiActions } from "./store/cart-slice";
+import Notification from "./components/UI/Notification";
 function App() {
   const dispatch = useDispatch();
   const showCart = useSelector((state) => state.ui.isVisible);
   const cart = useSelector((state) => state.cart);
-  c;
+  const notification = useSelector((state) => state.ui.notification);
   useEffect(() => {
     const sendCartData = async () => {
       dispatch(
@@ -45,10 +46,19 @@ function App() {
     });
   }, [cart, dispatch]);
   return (
-    <Layout>
-      {showCart && <Cart />}
-      <Products />
-    </Layout>
+    <Fragment>
+      {notification && (
+        <Notification
+          status={notification.status}
+          title={notification.title}
+          message={notification.message}
+        />
+      )}
+      <Layout>
+        {showCart && <Cart />}
+        <Products />
+      </Layout>
+    </Fragment>
   );
 }
 
