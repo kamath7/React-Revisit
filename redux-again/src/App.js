@@ -5,6 +5,7 @@ import Layout from "./components/Layout/Layout";
 import Products from "./components/Shop/Products";
 import { uiActions } from "./store/cart-slice";
 import Notification from "./components/UI/Notification";
+let isInit = true;
 function App() {
   const dispatch = useDispatch();
   const showCart = useSelector((state) => state.ui.isVisible);
@@ -29,16 +30,20 @@ function App() {
       }
       dispatch(
         uiActions.showNotification({
-          status: "Success!",
+          status: "success",
           title: "Success!",
           message: "Cart data sent successfully!",
         })
       );
     };
+    if (isInit) {
+      isInit = false;
+      return;
+    }
     sendCartData().catch((err) => {
       dispatch(
         uiActions.showNotification({
-          status: "Error",
+          status: "error",
           title: "Error!",
           message: "Cart data failed to send",
         })
