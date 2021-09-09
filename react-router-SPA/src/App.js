@@ -1,7 +1,13 @@
+import { Route } from "react-router-dom";
+import Welcome from "./components/Welcome";
+import SomeProducts from "./components/SomeProducts";
 function App() {
   return (
     <div>
-      <h2>Let's get started!</h2>
+      <Route path="/welcome" component={Welcome} />
+      <Route path="/products">
+        <SomeProducts />
+      </Route>
     </div>
   );
 }
