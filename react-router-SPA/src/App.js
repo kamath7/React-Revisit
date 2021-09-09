@@ -9,10 +9,10 @@ function App() {
       <Header />
       <main>
         <Route path="/welcome" component={Welcome} />
-        <Route path="/products">
+        <Route path="/products" >
           <SomeProducts />
         </Route>
-        <Route path="/product-detail/:productId" component={ProductDetail} /> {/*dynamic path */}
+        <Route path="/products/:productId" component={ProductDetail} /> {/*dynamic path */}
       </main>
     </div>
   );
