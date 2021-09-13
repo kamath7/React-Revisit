@@ -1,0 +1,6 @@
+test code
+optimise it (lazy loading)
+build for product (create optimised build)
+upload to server (heroku, firebase)
+
+Lazy loading - Load only when required
