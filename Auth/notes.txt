@@ -20,3 +20,5 @@ Flaw in SSS - Everything tightly coupled.
 Auth Tokens - 
 - Create (but not store) "permission" token on server, send token to client 
 - Client sends token along with requests to protected resources 
+
+more to read on - https://jwt.io/
