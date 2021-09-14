@@ -1,0 +1,22 @@
+authentication - 
+Needed if content needs to be protected
+
+Auth is a 2 step process 
+
+-> Get access 
+->Send req to protected resource  
+
+Problems - Fake auth creds to server to request protected data
+
+Can use either 
+- Server side sessions 
+- Auth tokens 
+
+Servver Side Sessions 
+- Store unique identifier on server, sendsame identifier to client
+- Client sends identifier along with requests to protected resources .
+Flaw in SSS - Everything tightly coupled. 
+
+Auth Tokens - 
+- Create (but not store) "permission" token on server, send token to client 
+- Client sends token along with requests to protected resources 
