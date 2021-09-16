@@ -6,6 +6,7 @@ const AuthForm = () => {
   const emailIpRef = useRef();
   const passRef = useRef();
   const [isLogin, setIsLogin] = useState(true);
+  const [isLoading, setIsLoading] = useState(false)
 
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
@@ -15,6 +16,7 @@ const AuthForm = () => {
     event.preventDefault();
     const enteredEmail = emailIpRef.current.value;
     const enteredPass = passRef.current.value;
+    setIsLoading(true)
     if (isLogin) {
     } else {
       fetch(
@@ -31,6 +33,7 @@ const AuthForm = () => {
           },
         }
       ).then((res) => {
+        setIsLoading(false)
         if (res.ok) {
         } else {
           res.json().then((data) =>{
@@ -58,7 +61,8 @@ const AuthForm = () => {
           <input type="password" id="password" required ref={passRef} />
         </div>
         <div className={classes.actions}>
-          <button>{isLogin ? "Login" : "Create Account"}</button>
+          {!isLoading && <button>{isLogin ? "Login" : "Create Account"}</button>}
+          {isLoading && <p>Processing request...</p>}
           <button
             type="button"
             className={classes.toggle}
