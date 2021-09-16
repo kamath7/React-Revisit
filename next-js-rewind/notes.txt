@@ -1,0 +1,9 @@
+Next Js Notes 
+
+Website for Next JS - https://nextjs.org 
+
+- Fullstack framework for ReactJS
+- Next JS solves common problems making Problem solving easier. E.x Routing 
+
+Benefits - 
+a) Built in Server Side Rendering - preparing content on server rather than on client 
