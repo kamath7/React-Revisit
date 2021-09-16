@@ -14,3 +14,7 @@ b) Blending client -side and server side. Fetch data on server and render finish
 File based routing 
 a) Define routing with files and folders. (no need of react-router-dom type implementation)
 b) Highly understandable
+
+Full Stack framework - 
+a) Can add backend code 
+b) Can store data, get data, auth etc can be added to React projects
