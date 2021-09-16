@@ -56,7 +56,8 @@ const AuthForm = () => {
         });
       }
     }).then(data => {
-      authCtx.login(data.idToken) //setting the token
+      const expTime = new Date((new Date().getTime() + (+data.expiresIn * 1000))) // only to convert to ms
+      authCtx.login(data.idToken, expTime.toISOString()) //setting the token
       history.replace('/')
     }).catch((err) => {
       alert(`An error encountered. ${err}`)
