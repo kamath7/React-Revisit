@@ -6,5 +6,11 @@ Website for Next JS - https://nextjs.org
 - Next JS solves common problems making Problem solving easier. E.x Routing 
 
 Benefits - 
+
+SSR
 a) Built in Server Side Rendering - preparing content on server rather than on client. decreases data fetch time 
 b) Blending client -side and server side. Fetch data on server and render finished pages
+
+File based routing 
+a) Define routing with files and folders. (no need of react-router-dom type implementation)
+b) Highly understandable
