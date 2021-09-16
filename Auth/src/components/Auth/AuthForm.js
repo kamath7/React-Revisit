@@ -17,10 +17,16 @@ const AuthForm = () => {
     const enteredEmail = emailIpRef.current.value;
     const enteredPass = passRef.current.value;
     setIsLoading(true)
+    let url;
     if (isLogin) {
+      url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_FIREBASE_KEY}`
+
     } else {
-      fetch(
-        `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_FIREBASE_KEY}`,
+      url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_FIREBASE_KEY}`
+     
+    }
+     fetch(
+        url,
         {
           method: "POST",
           body: JSON.stringify({
@@ -35,18 +41,20 @@ const AuthForm = () => {
       ).then((res) => {
         setIsLoading(false)
         if (res.ok) {
+          return res.json()
         } else {
           res.json().then((data) =>{
             let errorMessage = 'Auth failed!'
             if (data && data.error && data.error.message){
-             errorMessage = data.error.message; 
-
+             errorMessage = data.error.message;
             }
-            alert(`An error encountered. ${errorMessage}`)
+            throw new Error(errorMessage)
           });
         }
-      });
-    }
+      }).then(data=> {
+        console.log(data)
+      }).catch((err)=>{            alert(`An error encountered. ${err}`)
+});
   };
   return (
     <section className={classes.auth}>
