@@ -1,9 +1,11 @@
 import React from 'react';
+import { useStore } from '../../hooks-store/store';
 
 import Card from '../UI/Card';
 import './FavoriteItem.css';
 
 const FavoriteItem = props => {
+  
   return (
     <Card style={{ marginBottom: '1rem' }}>
       <div className="favorite-item">
