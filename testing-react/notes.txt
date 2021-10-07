@@ -6,3 +6,11 @@ Different kinds of Automated tests
 Unit test - Test individual building blocks in isolation. Typically 10s to 100s are written
 Integration tests  - Tests combination of multiple building blocks. Typically couple of tests 
 End to End tests - Tests which include complete scenarios for hte app as a real user . only a handful of these are written 
+
+What to test 
+ - test different building blocks 
+ - unit tests - smallest building blocks that make up app 
+
+ How to test 
+ - test success and failure cases. also some rare scenarios
+ 
