@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Greet = () => {
+    const [ changeText, setChangeText] = useState(false)
+
+    const changeTextHandler = ()=>{
+        setChangeText(true)
+    }
     return (
         <div>
             <h2>Hello Kams!</h2>
-            <p>Something cool</p> 
+           { changeText?  <p>Something cool</p> : <p>Will we win the IPL trophy this year?</p>}
+            <button onClick={changeTextHandler} >Changes text</button>
         </div>
     )
 }
