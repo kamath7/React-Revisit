@@ -1,2 +1,8 @@
 Manual testing - Error prone. hard to test all possible combinations and scenarios 
 Automated Testing - COde that tests your code. Test individual building blocks of app. Very technical but allows to test all building blocks at once 
+
+Different kinds of Automated tests 
+
+Unit test - Test individual building blocks in isolation. Typically 10s to 100s are written
+Integration tests  - Tests combination of multiple building blocks. Typically couple of tests 
+End to End tests - Tests which include complete scenarios for hte app as a real user . only a handful of these are written 
