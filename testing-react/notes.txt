@@ -13,4 +13,9 @@ What to test
 
  How to test 
  - test success and failure cases. also some rare scenarios
+
+
+ Required tools 
+ - Tool to run tests and asserting results and also tool for simulating components 
+ - jest to test and react testing library to simulate 
  
