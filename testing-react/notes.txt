@@ -18,4 +18,8 @@ What to test
  Required tools 
  - Tool to run tests and asserting results and also tool for simulating components 
  - jest to test and react testing library to simulate 
- 
+
+ Follow AAA'scenarios
+ Arrange - set test data, test conditions and test environment 
+ Act- Run logic that should be tested 
+ Assert - compare execution results with expected results
