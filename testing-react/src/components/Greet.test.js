@@ -28,12 +28,12 @@ describe("UI tests", () => {
     expect(paraElemText).toBeInTheDocument();
   });
 
-//   test('Does not render something cool upon button click',()=>{
-//     render(<Greet />);
-//     //act stage which was missed earlier
-//     const btnElem = screen.getByRole("button");
-//     userEvent.click(btnElem);
-//     const paraElemText = screen.queryByText("Something cool", { exact: false });
-//     expect(paraElemText).toBeNull();
-//   })
+  //   test('Does not render something cool upon button click',()=>{
+  //     render(<Greet />);
+  //     //act stage which was missed earlier
+  //     const btnElem = screen.getByRole("button");
+  //     userEvent.click(btnElem);
+  //     const paraElemText = screen.queryByText("Something cool", { exact: false });
+  //     expect(paraElemText).toBeNull();
+  //   })
 });
