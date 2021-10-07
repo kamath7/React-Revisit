@@ -1,0 +1,2 @@
+Manual testing - Error prone. hard to test all possible combinations and scenarios 
+Automated Testing - COde that tests your code. Test individual building blocks of app. Very technical but allows to test all building blocks at once 
