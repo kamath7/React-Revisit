@@ -58,3 +58,16 @@ function multi(a: number, b: number): number {
 function saySomething(vtext: any) {
   console.log(vtext);
 }
+//Generics
+
+//Declaring a generic func
+function doSomethingCool<T>(arr: T[], val: T) {
+  const newArr = [val, ...arr];
+  return newArr;
+}
+
+const arr1 = [1,2,3]
+
+const arr2 = doSomethingCool(arr1, 69)
+console.log(arr2)
+// doSomethingCool(['fruits','mac','cheese'],1) //won't work because of generics
