@@ -1,1 +1,2 @@
 Typescript - superset to JS
+npx-tsc
