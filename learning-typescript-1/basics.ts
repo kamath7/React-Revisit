@@ -39,3 +39,13 @@ let someFood = "Panner and Naan";
 
 let someMovie: string | number = "The Usual Suspects";
 someMovie = 100;
+
+//Type alias 
+type Food = {
+    name: string;
+    b: boolean;
+  }
+
+let myFood: Food[]
+
+
