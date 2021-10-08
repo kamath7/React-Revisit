@@ -26,12 +26,16 @@ bar = {
 };
 
 let something: {
-    name:string,
-    b: boolean
-}[]
+  name: string;
+  b: boolean;
+}[];
 
-//type inference 
+//type inference
 
-let someFood = 'Panner and Naan'
-// course = 1 //cant do this. since typescript understands it is a string. 
+let someFood = "Panner and Naan";
+// course = 1 //cant do this. since typescript understands it is a string.
 
+//union inference- to allow more than one type
+
+let someMovie: string | number = "The Usual Suspects";
+someMovie = 100;
