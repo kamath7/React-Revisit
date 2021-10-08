@@ -40,12 +40,21 @@ let someFood = "Panner and Naan";
 let someMovie: string | number = "The Usual Suspects";
 someMovie = 100;
 
-//Type alias 
+//Type alias
 type Food = {
-    name: string;
-    b: boolean;
-  }
+  name: string;
+  b: boolean;
+};
 
-let myFood: Food[]
+let myFood: Food[];
 
+//functions
 
+//no need to explicitly mention return type. typescript infers it
+function multi(a: number, b: number): number {
+  return a + b;
+}
+//return type void below
+function saySomething(vtext: any) {
+  console.log(vtext);
+}
