@@ -29,3 +29,9 @@ let something: {
     name:string,
     b: boolean
 }[]
+
+//type inference 
+
+let someFood = 'Panner and Naan'
+// course = 1 //cant do this. since typescript understands it is a string. 
+
