@@ -1,13 +1,16 @@
 import React from "react";
 
-function Todos() {
-  return (<div>
+const  Todos: React.FC = (props)=> {
+  return (
+    <div>
       <ul>
-          <li>Eat bread</li>
+        {}
+        {/* <li>Eat bread</li>
           <li>Go do potty</li>
-          <li>Sleep</li>
+          <li>Sleep</li> */}
       </ul>
-  </div>);
+    </div>
+  );
 }
 
 export default Todos;
