@@ -1,10 +1,11 @@
 import React from "react";
 
 import Todos from "./components/Todos";
+const items: string[] = ["Eat food", "Sleep", "Take a dump"];
 function App() {
   return (
     <div>
-      <Todos />
+      <Todos items={items} />
     </div>
   );
 }
