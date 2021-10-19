@@ -1,11 +1,12 @@
 import React from "react";
 
 import Todos from "./components/Todos";
-const items: string[] = ["Eat food", "Sleep", "Take a dump"];
+import Todo from "./models/todo";
 function App() {
+  const todos: Todo[] = [new Todo("Eat food"), new Todo("Take a dump"), new Todo("Sleep")]
   return (
     <div>
-      <Todos items={items} />
+      <Todos items={todos} />
     </div>
   );
 }
