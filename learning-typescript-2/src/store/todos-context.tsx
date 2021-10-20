@@ -12,7 +12,7 @@ const TodosContext = React.createContext<TodosContextObj>({
   removeTodo: (id: string) => {},
 });
 
-const TodosContextProvider: React.FC = (props) => {
+export const TodosContextProvider: React.FC = (props) => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const addTodos = (someText: string) => {
     const NewTodo = new Todo(someText);
